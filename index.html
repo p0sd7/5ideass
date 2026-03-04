@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Идей — Медиаагентство полного цикла</title>
+    <!-- Подключение Google Fonts для Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ✅ Подключение шрифта Unifix SP только для шапки */
+        @font-face {
+            font-family: 'Unifix SP';
+            src: url('fonts/UnifixSPDemo.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Базовые сбросы */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Цветовая схема */
+        :root {
+            --primary: #0000ba;
+            --primary-light: #3a3ad6;
+            --primary-dark: #00008f;
+            --primary-soft: #eef2ff;
+            --primary-muted: #cdd9f0;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --text-light: #ffffff;
+            --bg-light: #ffffff;
+            --bg-soft: #f8fafc;
+            --border-light: #e2e8f0;
+        }
+
+        /* Шапка — только здесь используется Unifix SP */
+        .header {
+            background-color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,186,0.05);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-icon {
+            width: 30%;
+            height: 30%;
+            background: transparent;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .slogan {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            font-style: italic;
+            max-width: 200px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-family: 'Unifix SP', sans-serif;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.2s;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Герой */
+        .hero {
+            padding: 60px 0 40px;
+            background: linear-gradient(145deg, #ffffff 0%, var(--bg-soft) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            border-bottom: 4px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .mission {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin: 24px 0 16px;
+            font-weight: 500;
+        }
+
+        .philosophy-tagline {
+            background: white;
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,186,0.08);
+            border: 1px solid var(--border-light);
+        }
+
+        .stats-mini {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .stat-item {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-zap {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);;
+        }
+
+        .stat-desc {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Ценности КРИК */
+        .values {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        .section-sub {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        .krik-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .krik-card {
+            background: var(--bg-soft);
+            border-radius: 24px;
+            padding: 28px 20px;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .krik-card:hover {
+            border-color: var(--primary-muted);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -15px rgba(0,0,186,0.1);
+        }
+        .krik-letter {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        .krik-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+        .krik-desc {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-muted);
+        }
+
+        /* Команда */
+        .team-roles {
+            padding: 60px 0;
+            background: var(--bg-soft);
+        }
+
+        .team-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .director-row {
+            margin-bottom: 40px;
+        }
+
+        .members-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 0;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -12px rgba(0,0,186,0.12);
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .director-card {
+            max-width: 350px;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,186,0.2);
+            border-color: var(--primary-muted);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--primary-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .team-photo {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-soft);
+        }
+
+        .team-desc {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Услуги */
+        .services {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-soft);
+            border-radius: 28px;
+            padding: 28px 24px;
+            border: 1px solid var(--border-light);
+            transition: 0.15s;
+        }
+        .service-card:hover {
+            border-color: var(--primary-muted);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .service-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+        .service-desc {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Блок с майнд-картой */
+        .mindmap-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--bg-soft) 0%, #ffffff 100%);
+        }
+
+        .mindmap-container {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 40px -18px rgba(0,0,186,0.2);
+            padding: 28px;
+            margin-top: 32px;
+            border: 1px solid var(--border-light);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: 20px;
+            border: 1px solid var(--primary-muted);
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        /* Футер */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 0;
+        }
+        .footer a {
+            color: var(--primary-soft);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer small {
+            opacity: 0.8;
+        }
+
+        /* Стили для футера с разделением шрифтов */
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-brand .number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-brand .text {
+            font-family: 'Unifix SP', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        }
+        
+        .footer-brand .description {
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1100px) {
+            .members-row {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .krik-grid { grid-template-columns: 1fr 1fr; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .header .container { flex-direction: column; align-items: start; }
+            .hero-title { font-size: 2.6rem; }
+            .section-title { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .members-row {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .director-row {
+                margin-bottom: 30px;
+            }
+            
+            .director-card {
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .krik-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats-mini { flex-direction: column; }
+            .nav-links { flex-wrap: wrap; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-block">
+                <div class="logo-icon">
+                    <img src="images/Logo.png" alt="5 Идей" class="logo-photo" onerror="this.src='https://via.placeholder.com/300x300?text=5+Идей'">
+                </div>
+                <div class="logo-text">
+                    <div class="slogan">идеи<span class="stat-zap">,</span> которые не боятся отличаться</div>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#mission">Миссия</a>
+                <a href="#values">Ценности</a>
+                <a href="#team">Команда</a>
+                <a href="#services">Услуги</a>
+                <a href="#mindmap">Стратегия</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="mission">
+        <div class="container hero-grid">
+            <div>
+                <h1 class="hero-title"><span>Идеи</span><br>ведут к успеху</h1>
+                <p class="mission"><strong>Миссия:</strong> помогать компаниям становиться узнаваемыми, укреплять репутацию и добиваться бизнес-метрик через продуманные рекламные кампании.</p>
+                <div class="philosophy-tagline">
+                    <p style="margin-bottom: 8px;"><strong>Наша философия в трёх слагаемых:</strong></p>
+                    <p>🧠 40% — преодоление рекламной слепоты<br>📈 35% — бизнес-ориентированность<br>🔍 25% — экспертиза и контроль</p>
+                </div>
+                <div class="stats-mini">
+                    <div class="stat-item"><span class="stat-number">5</span><br><span class="stat-desc">экспертов</span></div>
+                    <div class="stat-item"><span class="stat-number">6</span><br><span class="stat-desc">услуг</span></div>
+                    <div class="stat-item"><span class="stat-number">>80%</span><br><span class="stat-desc">рост ROI</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values" id="values">
+        <div class="container">
+            <h2 class="section-title">Ценности К.Р.И.К.</h2>
+            <div class="section-sub">Качество, Результат, Инновации, Креативность — наш внутренний крик о смелой рекламе</div>
+            <div class="krik-grid">
+                <div class="krik-card"><div class="krik-letter">К</div><div class="krik-title">Качество</div><div class="krik-desc">Упор на безупречное исполнение и внимание к деталям в каждом проекте.</div></div>
+                <div class="krik-card"><div class="krik-letter">Р</div><div class="krik-title">Результат</div><div class="krik-desc">KPI и измеримые бизнес-показатели — основа нашей работы.</div></div>
+                <div class="krik-card"><div class="krik-letter">И</div><div class="krik-title">Инновации</div><div class="krik-desc">Свежие медиа-решения и новые форматы взаимодействия.</div></div>
+                <div class="krik-card"><div class="krik-letter">К</div><div class="krik-title">Креативность</div><div class="krik-desc">Идеи, которые невозможно не заметить.</div></div>
+            </div>
+            <p style="margin-top: 32px; font-style: italic; color: var(--text-muted);">«КРИК — это голос агентства, который заявляет о том, что реклама может и должна быть по-настоящему эффективной, смелой и заметной.»</p>
+        </div>
+    </section>
+
+    <section class="team-roles" id="team">
+        <div class="container">
+            <h2 class="section-title">Команда мечты</h2>
+            <div class="section-sub">Пятеро профессионалов, закрывающих полный цикл медиа-агентства</div>
+            
+            <!-- Первый ряд: только директор -->
+            <div class="team-row director-row">
+                <div class="team-card director-card">
+                    <div class="photo-wrapper">
+                        <img src="images/Katya.png" alt="Екатерина Танасичук" class="team-photo" onerror="this.src='https://via.placeholder.com/300x300?text=Катя'">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Екатерина Танасичук</h3>
+                        <div class="team-role">Аккаунт-менеджер / директор</div>
+                        <p class="team-desc">Координация всех услуг для клиентов, контроль размещений, взаимодействие с клиентами, управление проектами.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Второй ряд: остальные 4 члена команды -->
+            <div class="team-row members-row">
+                <!-- Стратег-аналитик -->
+                <div class="team-card">
+                    <div class="photo-wrapper">
+                        <img src="images/Marina.png" alt="Марина Попова" class="team-photo" onerror="this.src='https://via.placeholder.com/300x300?text=Марина'">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Марина Попова</h3>
+                        <div class="team-role">Стратег-аналитик</div>
+                        <p class="team-desc">Исследование (анализ рынка, аудитории), разработка медиастратегий на основе данных.</p>
+                    </div>
+                </div>
+
+                <!-- Специалист по медиапланированию -->
+                <div class="team-card">
+                    <div class="photo-wrapper">
+                        <img src="images/Anya.png" alt="Анна Климова" class="team-photo" onerror="this.src='https://via.placeholder.com/300x300?text=Анна'">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Анна Климова</h3>
+                        <div class="team-role">Специалист по медиапланированию</div>
+                        <p class="team-desc">Медиапланы, выбор каналов, продакт-плейсмент.</p>
+                    </div>
+                </div>
+
+                <!-- Медиабайер -->
+                <div class="team-card">
+                    <div class="photo-wrapper">
+                        <img src="images/Karina.png" alt="Карина Кудоярова" class="team-photo" onerror="this.src='https://via.placeholder.com/300x300?text=Карина'">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Карина Кудоярова</h3>
+                        <div class="team-role">Медиабайер</div>
+                        <p class="team-desc">Закупка рекламных мест, переговоры, поддержка в реализации интеграций.</p>
+                    </div>
+                </div>
+
+                <!-- Рекламный аналитик -->
+                <div class="team-card">
+                    <div class="photo-wrapper">
+                        <img src="images/Liza.jpg" alt="Елизавета Шкумат" class="team-photo" onerror="this.src='https://via.placeholder.com/300x300?text=Лиза'">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Елизавета Шкумат</h3>
+                        <div class="team-role">Рекламный аналитик</div>
+                        <p class="team-desc">Контроль размещений, мониторинг, отчёты, пост-кампания анализ, оптимизация.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Услуги полного цикла</h2>
+            <div class="section-sub">От исследования до постанализа — мы сопровождаем каждый этап</div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon">🔍</div><div class="service-title">Исследование</div><div class="service-desc">Кабинетные, количественные и качественные исследования ЦА, оценка каналов, точки роста.</div></div>
+                <div class="service-card"><div class="service-icon">📌</div><div class="service-title">Стратегия</div><div class="service-desc">Ключевые сообщения, выбор медиаканалов, контент-решения, стратегии привлечения.</div></div>
+                <div class="service-card"><div class="service-icon">📅</div><div class="service-title">Планирование</div><div class="service-desc">Оптимизация рекламных кампаний для максимального ROI, медиаплан под KPI.</div></div>
+                <div class="service-card"><div class="service-icon">🎬</div><div class="service-title">Продакт-плейсмент</div><div class="service-desc">Сценарии интеграций, реализация «под ключ», естественное присутствие бренда.</div></div>
+                <div class="service-card"><div class="service-icon">📊</div><div class="service-title">Контроль размещений</div><div class="service-desc">Отслеживание запусков, пост-кампания анализ, отчёты по результативности.</div></div>
+                <div class="service-card"><div class="service-icon">📢</div><div class="service-title">Медиабаинг</div><div class="service-desc">Закупка пространства и времени на выгодных условиях.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ВСТРОЕННАЯ МАЙНД-КАРТА XMIND -->
+    <section class="mindmap-section" id="mindmap">
+        <div class="container">
+            <h2 class="section-title">🧠 Стратегическая карта</h2>
+            <div class="section-sub">Визуализация наших процессов и подхода — майнд-карта «5 Идей»</div>
+            <div class="mindmap-container">
+                <div class="iframe-wrapper">
+                    <iframe 
+                        src="https://app.xmind.com/embed/KlDQy37n?sheet-id=a34d7a6d-c43e-4e19-ac74-b42e8dadaa63" 
+                        title="Майнд-карта 5 Идей"
+                        loading="lazy"
+                        allow="fullscreen"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: var(--text-muted);">⚡ Наша карта идей: от исследований до медиабаинга. <a href="https://app.xmind.com/embed/KlDQy37n?sheet-id=a34d7a6d-c43e-4e19-ac74-b42e8dadaa63" target="_blank" style="color: var(--primary);">Открыть на Xmind →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                <div class="footer-brand">
+                    <div>
+                        <span class="number">5</span><span class="text"> ИДЕЙ</span>
+                    </div>
+                    <span class="description">Медиаагентство полного цикла</span>
+                </div>
+                <div style="text-align: right; font-family: 'Montserrat', sans-serif;">
+                    <p>📍 Санкт-Петербург / онлайн · <a href="#">fiveideas@mail.ru</a> · <a href="#">+7 (903) 093-22-33</a></p>
+                    <small>© 2025 Агентство «5 Идей». Идеи, которые не боятся отличаться</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
